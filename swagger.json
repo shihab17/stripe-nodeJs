@@ -1,0 +1,91 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "version": "1.0.0",
+      "title": "Express JS",
+      "description": "API Documentation"
+    },
+    "basePath": "/api/v1",
+    "tags": [
+      {
+        "name": "User",
+        "description": "Endpoints"
+      }
+    ],
+    "schemes": [
+      "http",
+      "https"
+    ],
+    "securityDefinitions": {
+      "Authorization": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "authorization",
+        "description": "Authentication token"
+      }
+    },
+    "consumes": [
+      "application/json"
+    ],
+    "produces": [
+      "application/json"
+    ],
+    "paths": {
+        "/auth/login": {
+            "post": {
+                "tags": [
+                    "USER"
+                ],
+                "summary": "Login",
+                "description": "",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [{
+                    "in": "body",
+                    "name": "body",
+                    "description": "User credentails for login",
+                    "required": true,
+                    "schema": {
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "description": "Login",
+                        "schema": {}
+                    }
+                }
+            }
+        },
+        "/user": {
+            "get": {
+                "tags": [
+                    "USER"
+                ],
+                "summary": "User records",
+                "description": "",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "security": [
+                    {
+                       "Authorization": []
+                    }
+                  ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "User records",
+                        "schema": {}
+                    }
+                }
+            }
+        }
+    }
+}
